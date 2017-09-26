@@ -9,52 +9,27 @@ namespace Hearts
     public class Card : IComparable<Card>
     {
         public readonly string Name;
-        public readonly string Suit;
+        public readonly Type Rank;
+        public readonly Suits Suit;
         //HierarchyNum tells the actual value of the card. i.e. Ace = 13
-        public readonly int HierarchyNum;
         public string Owner { get; set; }
-        public int SuitNumber
-        {
-            get
-            {
-                int output;
-                if(Suit == "Hearts")
-                {
-                    output = 4;
-                }
-                if (Suit == "Diamonds")
-                {
-                    output = 3;
-                }
-                if (Suit == "Spades")
-                {
-                    output = 2;
-                }
-                else
-                {
-                    output = 1;
-                }
-                return output;
-            }
-        }
 
-        public Card(string name, string suit, int hierarchyNum)
+        public Card(Type _rank, Suits _suit)
         {
-
-            Name = name;
-            Suit = suit;
-            HierarchyNum = hierarchyNum;
+            Rank = _rank;
+            Suit = _suit;
+            Name = (_rank.ToString() + " of " + _suit.ToString());
         }
 
         public int CompareTo(Card that)
         {
-            if(this.SuitNumber == that.SuitNumber)
+            if(this.Suit == that.Suit)
             {
-                if(this.HierarchyNum > that.HierarchyNum)
+                if(this.Rank > that.Rank)
                 {
                     return -1;
                 }
-                if(that.HierarchyNum > this.HierarchyNum)
+                if(that.Rank > this.Rank)
                 {
                     return 1;
                 }
@@ -63,11 +38,11 @@ namespace Hearts
                     Console.WriteLine("Card.cs/CompareTo() One or more cars is not valid!");
                 }
             }
-            if(this.SuitNumber > that.SuitNumber)
+            if(this.Suit > that.Suit)
             {
                 return -1;
             }
-            if (that.SuitNumber > this.SuitNumber)
+            if (that.Suit > this.Suit)
             {
                 return 1;
             }
@@ -78,5 +53,30 @@ namespace Hearts
             }
 
         }
+    }
+
+    public enum Suits
+    {
+        Hearts = 1,
+        Diamonds = 2,
+        Spades = 3,
+        Clubs = 4
+    }
+
+    public enum Type
+    {
+        Ace = 14,
+        King = 13,
+        Queen = 12,
+        Jack = 11,
+        Ten = 10,
+        Nine = 9,
+        Eight = 8,
+        Seven = 7,
+        Six = 6,
+        Five = 5,
+        Four = 4,
+        Three = 3,
+        Two = 2
     }
 }

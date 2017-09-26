@@ -30,26 +30,26 @@ namespace Hearts
         {
         }
 
-        public void PrintHand()
-        {
-            Console.WriteLine("This Oponents hand is: ");
-            Console.WriteLine();
-            foreach (Card card in Hand)
-            {
-                if (card == null)
-                {                    
-                    Console.WriteLine("This card is empty");
-                    continue;
-                }
-                Console.WriteLine(card.Name + ", ");
-            }
-            Console.WriteLine();
-        }
+        //public void PrintHand()
+        //{
+        //    Console.WriteLine("This Oponents hand is: ");
+        //    Console.WriteLine();
+        //    foreach (Card card in Hand)
+        //    {
+        //        if (card == null)
+        //        {                    
+        //            Console.WriteLine("This card is empty");
+        //            continue;
+        //        }
+        //        Console.WriteLine(card.Name + ", ");
+        //    }
+        //    Console.WriteLine();
+        //}
 
-        public Card PlayCard(string suit)
-        {
-            Card noCard = new Card("None", "None", 12);
-            return noCard;
-        }
+        //public Card PlayCard(string suit)
+        //{
+        //    Card noCard = new Card("None", "None", 12);
+        //    return noCard;
+        //}
     }
 }

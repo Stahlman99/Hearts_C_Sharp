@@ -21,6 +21,11 @@ namespace Hearts
             Seat = seat;
         }
 
+        public virtual void SortHand()
+        {
+            Hand.Sort();
+        }
+
         public virtual void PassCards()
         {
 
@@ -46,6 +51,18 @@ namespace Hearts
             }
 
             return false;
+        }
+
+        public string PrintHand()
+        {
+            string writeToForm = null;
+
+            foreach (Card card in Hand)
+            {
+                writeToForm += card.Name + "\r\n";
+            }
+
+            return writeToForm;
         }
     }
 }

@@ -21,11 +21,11 @@ namespace Hearts
         //}
 
         List<Card> tempHand = new List<Card>(13);
-        int cardIDOne = -1;
-        int cardIDTwo = -1;
-        int cardIDThree = -1;
-        string cardName;
-        bool doesHaveSuit = false;
+        //int cardIDOne = -1;
+        //int cardIDTwo = -1;
+        //int cardIDThree = -1;
+        //string cardName;
+        //bool doesHaveSuit = false;
 
         public override void PassCards()
         {
@@ -204,20 +204,5 @@ namespace Hearts
         //        return false;
         //    }
         //}
-
-        public void PrintHand()
-        {
-            Console.WriteLine("Your hand is ");
-            Console.WriteLine();
-            foreach (Card card in Hand)
-            {
-                if (card == null)
-                {
-                    break;
-                }
-                Console.WriteLine(card.Name + ", ");
-            }
-            Console.WriteLine();
-        }
     }
 }

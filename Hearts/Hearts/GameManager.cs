@@ -11,58 +11,65 @@ namespace Hearts
         private Card[] startingDeck = 
         {
             #region Cards
-            new Card("2 of Spades", "Spades", 1),
-            new Card("3 of Spades", "Spades", 2),
-            new Card("4 of Spades", "Spades", 3),
-            new Card("5 of Spades", "Spades", 4),
-            new Card("6 of Spades", "Spades", 5),
-            new Card("7 of Spades", "Spades", 6),
-            new Card("8 of Spades", "Spades", 7),
-            new Card("9 of Spades", "Spades", 8),
-            new Card("10 of Spades", "Spades", 9),
-            new Card("Jack of Spades", "Spades", 10),
-            new Card("Queen of Spades", "Spades", 11),
-            new Card("King of Spades", "Spades", 12),
-            new Card("Ace of Spades", "Spades", 13),
-            new Card("2 of Clubs", "Clubs", 1),
-            new Card("3 of Clubs", "Clubs", 2),
-            new Card("4 of Clubs", "Clubs", 3),
-            new Card("5 of Clubs", "Clubs", 4),
-            new Card("6 of Clubs", "Clubs", 5),
-            new Card("7 of Clubs", "Clubs", 6),
-            new Card("8 of Clubs", "Clubs", 7),
-            new Card("9 of Clubs", "Clubs", 8),
-            new Card("10 of Clubs", "Clubs", 9),
-            new Card("Jack of Clubs", "Clubs", 10),
-            new Card("Queen of Clubs", "Clubs", 11),
-            new Card("King of Clubs", "Clubs", 12),
-            new Card("Ace of Clubs", "Clubs", 13),
-            new Card("2 of Diamonds", "Diamonds", 1),
-            new Card("3 of Diamonds", "Diamonds", 2),
-            new Card("4 of Diamonds", "Diamonds", 3),
-            new Card("5 of Diamonds", "Diamonds", 4),
-            new Card("6 of Diamonds", "Diamonds", 5),
-            new Card("7 of Diamonds", "Diamonds", 6),
-            new Card("8 of Diamonds", "Diamonds", 7),
-            new Card("9 of Diamonds", "Diamonds", 8),
-            new Card("10 of Diamonds", "Diamonds", 9),
-            new Card("Jack of Diamonds", "Diamonds", 10),
-            new Card("Queen of Diamonds", "Diamonds", 11),
-            new Card("King of Diamonds", "Diamonds", 12),
-            new Card("Ace of Diamonds", "Diamonds", 13),
-             new Card("2 of Hearts", "Hearts", 1),
-            new Card("3 of Hearts", "Hearts", 2),
-            new Card("4 of Hearts", "Hearts", 3),
-            new Card("5 of Hearts", "Hearts", 4),
-            new Card("6 of Hearts", "Hearts", 5),
-            new Card("7 of Hearts", "Hearts", 6),
-            new Card("8 of Hearts", "Hearts", 7),
-            new Card("9 of Hearts", "Hearts", 8),
-            new Card("10 of Hearts", "Hearts", 9),
-            new Card("Jack of Hearts", "Hearts", 10),
-            new Card("Queen of Hearts", "Hearts", 11),
-            new Card("King of Hearts", "Hearts", 12),
-            new Card("Ace of Hearts", "Hearts", 13)
+            //Spades
+            new Card(Type.Two, Suits.Spades),
+            new Card(Type.Three, Suits.Spades),
+            new Card(Type.Four, Suits.Spades),
+            new Card(Type.Five, Suits.Spades),
+            new Card(Type.Six, Suits.Spades),
+            new Card(Type.Seven, Suits.Spades),
+            new Card(Type.Eight, Suits.Spades),
+            new Card(Type.Nine, Suits.Spades),
+            new Card(Type.Ten, Suits.Spades),
+            new Card(Type.Jack, Suits.Spades),
+            new Card(Type.Queen, Suits.Spades),
+            new Card(Type.King, Suits.Spades),
+            new Card(Type.Ace, Suits.Spades),
+
+            //Clubs
+            new Card(Type.Two, Suits.Clubs),
+            new Card(Type.Three, Suits.Clubs),
+            new Card(Type.Four, Suits.Clubs),
+            new Card(Type.Five, Suits.Clubs),
+            new Card(Type.Six, Suits.Clubs),
+            new Card(Type.Seven, Suits.Clubs),
+            new Card(Type.Eight, Suits.Clubs),
+            new Card(Type.Nine, Suits.Clubs),
+            new Card(Type.Ten, Suits.Clubs),
+            new Card(Type.Jack, Suits.Clubs),
+            new Card(Type.Queen, Suits.Clubs),
+            new Card(Type.King, Suits.Clubs),
+            new Card(Type.Ace, Suits.Clubs),
+
+            //Hearts
+            new Card(Type.Two, Suits.Hearts),
+            new Card(Type.Three, Suits.Hearts),
+            new Card(Type.Four, Suits.Hearts),
+            new Card(Type.Five, Suits.Hearts),
+            new Card(Type.Six, Suits.Hearts),
+            new Card(Type.Seven, Suits.Hearts),
+            new Card(Type.Eight, Suits.Hearts),
+            new Card(Type.Nine, Suits.Hearts),
+            new Card(Type.Ten, Suits.Hearts),
+            new Card(Type.Jack, Suits.Hearts),
+            new Card(Type.Queen, Suits.Hearts),
+            new Card(Type.King, Suits.Hearts),
+            new Card(Type.Ace, Suits.Hearts),
+
+            //Diamonds
+            new Card(Type.Two, Suits.Diamonds),
+            new Card(Type.Three, Suits.Diamonds),
+            new Card(Type.Four, Suits.Diamonds),
+            new Card(Type.Five, Suits.Diamonds),
+            new Card(Type.Six, Suits.Diamonds),
+            new Card(Type.Seven, Suits.Diamonds),
+            new Card(Type.Eight, Suits.Diamonds),
+            new Card(Type.Nine, Suits.Diamonds),
+            new Card(Type.Ten, Suits.Diamonds),
+            new Card(Type.Jack, Suits.Diamonds),
+            new Card(Type.Queen, Suits.Diamonds),
+            new Card(Type.King, Suits.Diamonds),
+            new Card(Type.Ace, Suits.Diamonds)
             #endregion
         };
 
@@ -70,14 +77,34 @@ namespace Hearts
 
         public int Round { get; set; }
 
-        private Card[] _seatOnePassing;
-        private Card[] _seatTwoPassing;
-        private Card[] _seatThreePassing;
-        private Card[] _seatFourPassing;
-
         //public Card[] Trick;
+        public List<Card> Deck { get; set; }
 
-        public List<Card> Shuffle(Card[] _startingDeck)
+        public Player Player1 = new Player("Nathan", 1);
+        public Opponent Op1 = new Opponent("Opponenent 1", 2);
+        public Opponent Op2 = new Opponent("Opponenent 2", 3);
+        public Opponent Op3 = new Opponent("Opponenent 3", 4);
+
+        public bool IsBroken = false;
+
+        public void Shuffle()
+        {
+            Deck = ShuffleStep3(ShuffleStep2(ShuffleStep1()));
+        }
+
+        public string DisplayDeck()
+        {
+            string writeToForm = null;
+
+            foreach (Card card in Deck)
+            {
+                writeToForm += card.Name + "\r\n";
+            }
+
+            return writeToForm;
+        }
+
+        private List<Card> ShuffleStep3(Card[] _startingDeck)
         {
             List<Card> tempDeck = new List<Card>(52);
 
@@ -89,7 +116,7 @@ namespace Hearts
             return tempDeck;
         }
 
-        public Card[] ShuffleStep1()
+        private Card[] ShuffleStep1()
         {
             // Knuth shuffle algorithm :: courtesy of Wikipedia :)
             for(int i = 0; i < startingDeck.Length; i++)
@@ -104,31 +131,43 @@ namespace Hearts
             return startingDeck;
         }
 
-        public void Deal(List<Card> deck, Player player, Opponent Op1, Opponent Op2, Opponent Op3)
+        private Card[] ShuffleStep2(Card[] onceShuffled)
         {
+            int reverseNum = onceShuffled.Length;
 
-            //int card = 0;
+            // Knuth shuffle algorithm :: courtesy of Wikipedia :)
+            for (int i = 1; i < onceShuffled.Length; i++)
+            {
+                Card tmp = onceShuffled[reverseNum - i];
+                int r = _rand.Next(reverseNum - i, onceShuffled.Length);
+                onceShuffled[reverseNum - i] = onceShuffled[reverseNum - r];
+                onceShuffled[reverseNum - r] = tmp;
+                i++;
+            }
 
-            ////i increases by four so we can work with all hands at once
-            //for (int i = 0; i < (deck.Length - 3); i += 4)
-            //{
-            //    try
-            //    {
-            //        player.Hand[card] = deck[i];
+            return startingDeck;
+        }
 
-            //        Op1.Hand[card] = deck[i + 1];
+        public void Deal(List<Card> _deck)
+        {
+            //i increases by four so we can work with all hands at once
+            for (int i = 0; i < (_deck.Count() - 3); i += 4)
+            {
+                try
+                {
+                    Player1.Hand.Add(_deck[i]);
 
-            //        Op2.Hand[card] = deck[i + 2];
+                    Op1.Hand.Add(_deck[i + 1]);
 
-            //        Op3.Hand[card] = deck[i + 3];
+                    Op1.Hand.Add(_deck[i + 2]);
 
-            //        card++;
-            //    }
-            //    catch(Exception ex)
-            //    {
-            //        Console.WriteLine("Something is very Bad" + ex.Message);
-            //    }
-            //}
+                    Op1.Hand.Add(_deck[i + 3]);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Faulty Deal" + ex.Message);
+                }
+            }
         }
 
         public void SwapCards(Player player, Card[] one, Opponent OP1, Card[] two, Opponent Op2, Card[] three, Opponent Op3, Card[] four)

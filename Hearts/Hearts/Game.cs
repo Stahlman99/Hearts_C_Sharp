@@ -8,27 +8,8 @@ namespace Hearts
 {
     class Game
     {
-        GameManager _game = new GameManager();
+        
 
-        Player player = new Player("Nathan", 1);
-        Opponent Op1 = new Opponent("Opponenent 1", 2);
-        Opponent Op2 = new Opponent("Opponenent 2", 3);
-        Opponent Op3 = new Opponent("Opponenent 3", 4);
-
-        public bool IsBroken = false;
-
-        public string IsStuffWorking()
-        {
-            List<Card> Deck = _game.Shuffle(_game.ShuffleStep1());
-            string writeToForm = null;
-
-            foreach(Card card in Deck)
-            {
-                writeToForm += card.Name + "\r\n";
-            }
-
-            return writeToForm;
-        }
 
         //public void StartGame()
         //{
